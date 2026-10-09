@@ -1,2 +1,2 @@
 console.log('config.js')
-consol.log('version13')
+consol.log('version14')
