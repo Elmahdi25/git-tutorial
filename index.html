@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README (1).md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<div align="center">
+  <h1>My First Steps with Git 🌱</h1>
+  <p><strong>Edit. Review. Save. Learn. Repeat.</strong></p>
+  <p>A beginner-friendly learning journal about saving versions of my code and understanding what Git does.</p>
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/Terminal-PowerShell-5391FE?style=for-the-badge" alt="PowerShell">
+  <img src="https://img.shields.io/badge/Project-Learning%20by%20Practicing-2563EB?style=for-the-badge" alt="Learning project">
+  <p>
+    <a href="#preview">Preview</a> ·
+    <a href="#what-you-can-explore">Topics</a> ·
+    <a href="#run-it-locally">Practice locally</a> ·
+    <a href="#commands-from-the-video">Video commands</a> ·
+    <a href="#extra-commands-i-practiced">Extra commands</a> ·
+    <a href="#what-i-learned">What I learned</a>
+  </p>
+</div>
+<h2 id="why-i-built-this">Why I built this</h2>
+<p>While learning web development, I wanted a better way to save my progress than creating folders named <code>final</code>, <code>final-2</code>, and <code>final-really-final</code>. 😄</p>
+<p>This learning journal records the Git fundamentals I practiced while following a tutorial by <strong>Simon from SuperSimple.dev</strong>. The main exercise recreates a document's version-history experience for code: save versions, inspect previous versions, and restore old content.</p>
+<p>I also collected the useful commands I practiced separately so I can revisit them without mixing them up with the lesson.</p>
+<p><strong>Scope:</strong> the supplied video transcript covers local Git. It mentions GitHub and further branching lessons as the next steps, but does not demonstrate GitHub upload commands. Publishing this README on GitHub does not mean those later lessons are covered here.</p>
+<h2 id="preview">Preview</h2>
+<p>A typical checkpoint after saving a version:</p>
+<pre class="hljs"><code><div>On branch main
+nothing to commit, working tree clean
+</div></code></pre>
+<p>A short history might look like this:</p>
+<pre class="hljs"><code><div>c3d4e5f Version 1 restored
+b2c3d4e Version 3
+a1b2c3d Version 2
+123abcd Version 1
+</div></code></pre>
+<p>These are illustrative outputs, not the actual commit IDs of this repository. A clean working tree describes local changes; it does not confirm an upload to GitHub.</p>
+<p><img src="docs/1.png" alt="git log"></p>
+<br>
+<p><img src="docs/2.png" alt="git log --all --graph"></p>
+<h2 id="what-you-can-explore">What you can explore</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>What I practiced</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Repository setup</td>
+<td>Starting Git inside a project folder</td>
+</tr>
+<tr>
+<td>Identity</td>
+<td>Setting the author name and email for future commits</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td>Selecting the versions of files to save next</td>
+</tr>
+<tr>
+<td>Commits</td>
+<td>Saving a snapshot with a useful message</td>
+</tr>
+<tr>
+<td>History</td>
+<td>Reading commits and understanding <code>HEAD</code></td>
+</tr>
+<tr>
+<td>Undoing</td>
+<td>Separating unstaging from discarding edits</td>
+</tr>
+<tr>
+<td>Earlier versions</td>
+<td>Viewing old commits and restoring old file contents</td>
+</tr>
+<tr>
+<td>Shortcuts</td>
+<td>Creating Git aliases</td>
+</tr>
+<tr>
+<td>Ignored files</td>
+<td>Keeping selected untracked files out of commits</td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>Reviewing, staging, and unstaging through Source Control</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-three-places-to-remember-">The three places to remember 🎒</h3>
+<p>Imagine doing homework:</p>
+<table>
+<thead>
+<tr>
+<th>Real life</th>
+<th>Git</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The notebook you are still editing</td>
+<td>Working tree: your current files</td>
+</tr>
+<tr>
+<td>A photo you selected to hand in</td>
+<td>Staging area: the snapshot prepared for the next commit</td>
+</tr>
+<tr>
+<td>Your album of previously saved photos</td>
+<td>Commit history</td>
+</tr>
+</tbody>
+</table>
+<p><code>git add</code> prepares a snapshot. <code>git commit</code> records it in history. If you change the file after staging, the prepared snapshot stays the same until you stage the updated content again.</p>
+<h2 id="built-with">Built with</h2>
+<ul>
+<li><strong>Git</strong> — local version control.</li>
+<li><strong>PowerShell</strong> — terminal commands on Windows.</li>
+<li><strong>VS Code</strong> — editing and reviewing changes with Source Control.</li>
+<li><strong>Markdown</strong> — this learning journal.</li>
+</ul>
+<p>Git is the tool that manages history. GitHub is a service that can host repositories online. They are connected ideas, but they are not the same thing.</p>
+<h2 id="run-it-locally">Run it locally</h2>
+<h3 id="1-prepare-a-practice-folder">1. Prepare a practice folder</h3>
+<p>Use a separate exercise folder, not a project with important unsaved work. Git must already be installed.</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-ItemType</span> Directory <span class="hljs-literal">-Path</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/git-video-practice&quot;</span>
+<span class="hljs-built_in">Set-Location</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/git-video-practice&quot;</span>
+<span class="hljs-built_in">New-Item</span> <span class="hljs-literal">-ItemType</span> Directory <span class="hljs-literal">-Path</span> <span class="hljs-string">&quot;src&quot;</span>
+</div></code></pre>
+<p>If the folder already exists, enter it instead of creating it again.</p>
+<h3 id="2-create-the-example-files">2. Create the example files</h3>
+<pre class="hljs"><code><div><span class="hljs-selector-tag">@</span>(
+    <span class="hljs-string">&#x27;console.log(&quot;config.js&quot;);&#x27;</span>
+    <span class="hljs-string">&#x27;console.log(&quot;Version 1&quot;);&#x27;</span>
+) | <span class="hljs-built_in">Set-Content</span> <span class="hljs-literal">-Encoding</span> utf8 config.js
+
+<span class="hljs-selector-tag">@</span>(
+    <span class="hljs-string">&#x27;console.log(&quot;src/index.js&quot;);&#x27;</span>
+    <span class="hljs-string">&#x27;console.log(&quot;Version 1&quot;);&#x27;</span>
+) | <span class="hljs-built_in">Set-Content</span> <span class="hljs-literal">-Encoding</span> utf8 src/index.js
+</div></code></pre>
+<p>These are practice snippets based on the lesson's example. You do not need to execute the JavaScript to practice Git.</p>
+<h3 id="3-save-the-first-version">3. Save the first version</h3>
+<p>Replace the example identity with your own. These commands run locally.</p>
+<pre class="hljs"><code><div>git config <span class="hljs-literal">--global</span> user.name <span class="hljs-string">&quot;Your Name&quot;</span>
+git config <span class="hljs-literal">--global</span> user.email <span class="hljs-string">&quot;your-email@example.com&quot;</span>
+git init
+git status
+git add .
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Version 1&quot;</span>
+git log
+</div></code></pre>
+<p>The initial branch may be named <code>main</code> or <code>master</code>. Use its actual name when returning to it later. The extra-command section shows how to explicitly start on <code>main</code>.</p>
+<h3 id="4-build-the-history">4. Build the history</h3>
+<p>Edit both files in VS Code: change <code>Version 1</code> to <code>Version 2</code>, save, then run:</p>
+<pre class="hljs"><code><div>git add .
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Version 2&quot;</span>
+</div></code></pre>
+<p>Repeat with <code>Version 3</code>:</p>
+<pre class="hljs"><code><div>git add .
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Version 3&quot;</span>
+git log <span class="hljs-literal">--all</span> <span class="hljs-literal">--graph</span>
+</div></code></pre>
+<p>You now have versions to inspect and restore. Press <strong><code>q</code></strong> if the history opens in a scrolling viewer.</p>
+<h2 id="commands-from-the-video">Commands from the video</h2>
+<p>Examples use the lesson's <code>config.js</code>, <code>change.js</code>, and <code>src</code> paths. Use paths that actually exist in your exercise. Commands in the tables are alternatives to understand, not a script to run from top to bottom.</p>
+<h3 id="1-navigate-and-initialize">1. Navigate and initialize</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git</code></td>
+<td>Displays Git's general usage information; the lesson uses it to check installation</td>
+</tr>
+<tr>
+<td><code>ls</code></td>
+<td>Lists items in the current folder; in PowerShell it aliases <code>Get-ChildItem</code></td>
+</tr>
+<tr>
+<td><code>cd ~/Desktop/git-tutorial</code></td>
+<td>Enters the example project folder; adapt the path to your computer</td>
+</tr>
+<tr>
+<td><code>git init</code></td>
+<td>Creates <code>.git</code> and initializes the current folder as a repository</td>
+</tr>
+<tr>
+<td><code>git status</code></td>
+<td>Shows the current branch and staged, unstaged, and untracked changes</td>
+</tr>
+</tbody>
+</table>
+<p><code>git init</code> does not automatically stage files, create a commit, or upload anything. <code>.git</code> contains the repository's metadata and history; your working files stay outside it.</p>
+<h3 id="2-configure-the-author">2. Configure the author</h3>
+<pre class="hljs"><code><div>git config <span class="hljs-literal">--global</span> user.name <span class="hljs-string">&quot;Your Name&quot;</span>
+git config <span class="hljs-literal">--global</span> user.email <span class="hljs-string">&quot;your-email@example.com&quot;</span>
+</div></code></pre>
+<p><code>--global</code> sets defaults for repositories used by your account. This is commit identity, not a GitHub login. Changing these settings does not automatically rewrite old commits.</p>
+<h3 id="3-stage-and-save">3. Stage and save</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git add config.js</code></td>
+<td>Stages the current content of one file</td>
+</tr>
+<tr>
+<td><code>git add src</code></td>
+<td>Stages eligible changes under that folder, including subfolders</td>
+</tr>
+<tr>
+<td><code>git add .</code></td>
+<td>Stages eligible changes in the current folder and below</td>
+</tr>
+<tr>
+<td><code>git commit -m &quot;Version 1&quot;</code></td>
+<td>Saves staged content with a message</td>
+</tr>
+<tr>
+<td><code>git commit -m &quot;Version 2&quot;</code></td>
+<td>Saves the next staged snapshot</td>
+</tr>
+<tr>
+<td><code>git commit -m &quot;Version 3&quot;</code></td>
+<td>Saves another staged snapshot</td>
+</tr>
+</tbody>
+</table>
+<p>The dot means <strong>the current folder</strong>. Run from the repository root when you intend to include changes throughout the project. Ignored untracked files are normally excluded.</p>
+<p>For a real project, a message such as <code>Add responsive navigation</code> describes the work better than <code>Version 2</code>.</p>
+<h3 id="4-correct-the-latest-commit">4. Correct the latest commit</h3>
+<p>After creating a forgotten <code>change.js</code>, stage it and amend:</p>
+<pre class="hljs"><code><div>git add change.js
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Version 1&quot;</span> <span class="hljs-literal">--amend</span>
+</div></code></pre>
+<p>This replaces the latest commit with a new commit containing the correction. It can also correct the message. The commit ID changes; practice this with your own unpublished commits.</p>
+<h3 id="5-unstage-or-discard-edits">5. Unstage or discard edits</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git reset config.js</code></td>
+<td>Unstages that file's changes; keeps edits in the working file</td>
+</tr>
+<tr>
+<td><code>git reset src</code></td>
+<td>Unstages changes under <code>src</code>; keeps working files</td>
+</tr>
+<tr>
+<td><code>git reset .</code></td>
+<td>Unstages changes in the current folder and below</td>
+</tr>
+<tr>
+<td><code>git checkout -- config.js</code></td>
+<td>Replaces the working file with its staged version</td>
+</tr>
+<tr>
+<td><code>git checkout -- change.js</code></td>
+<td>Does the same for <code>change.js</code></td>
+</tr>
+<tr>
+<td><code>git checkout -- .</code></td>
+<td>Discards unstaged edits to tracked files in the current folder and below</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Unstaging means “not ready to save.” Discarding means “remove these edits.”</strong></p>
+<p>The <code>--</code> separates options from paths. The checkout commands above can lose unstaged work, so review changes first. They restore from the staging area, which may differ from the latest commit. They do not delete ordinary untracked files.</p>
+<h3 id="6-read-commit-history">6. Read commit history</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>What it shows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git log</code></td>
+<td>History reachable from the current <code>HEAD</code>, newest first</td>
+</tr>
+<tr>
+<td><code>git log --all</code></td>
+<td>History reachable from all refs, plus <code>HEAD</code></td>
+</tr>
+<tr>
+<td><code>git log --graph</code></td>
+<td>The current history with a text graph of ancestry</td>
+</tr>
+<tr>
+<td><code>git log --all --graph</code></td>
+<td>The graph across refs and <code>HEAD</code></td>
+</tr>
+</tbody>
+</table>
+<p>Each commit has an ID, author, date, and message. <strong><code>HEAD</code> indicates your current position</strong>: normally the current branch, or a particular commit when detached.</p>
+<p><code>--all</code> does not mean every commit ever created, including abandoned commits. It expands which references Git starts from.</p>
+<h3 id="7-visit-an-earlier-version">7. Visit an earlier version</h3>
+<p>Copy a real commit ID from <code>git log</code>. Replace <code>COMMIT_ID</code> below; it is a placeholder.</p>
+<pre class="hljs"><code><div>git checkout COMMIT_ID
+</div></code></pre>
+<p>This updates tracked files to that commit and enters <strong>detached HEAD</strong> mode. It lets you inspect the old version without moving your existing branch backward. Start with a clean working tree to avoid mixing in local edits.</p>
+<p>Return to the branch used by the tutorial:</p>
+<pre class="hljs"><code><div>git checkout master
+</div></code></pre>
+<p>Or, if your branch is named <code>main</code>:</p>
+<pre class="hljs"><code><div>git checkout main
+</div></code></pre>
+<p>The lesson also demonstrates editing from an old commit and saving:</p>
+<pre class="hljs"><code><div>git add .
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Version 1 updated&quot;</span>
+</div></code></pre>
+<p>That creates a new line of history from the old version. It does not restore old content on your original branch. In detached HEAD, the new commit is not automatically attached to a named branch, so this is a lesson demonstration rather than the normal workflow to keep using.</p>
+<h3 id="8-restore-old-content-without-moving-head">8. Restore old content without moving HEAD</h3>
+<p>First return to <code>main</code> or <code>master</code>. Replace <code>COMMIT_ID</code> with the earlier version you want to use.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Content restored</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git checkout COMMIT_ID -- config.js</code></td>
+<td>One file from the earlier commit</td>
+</tr>
+<tr>
+<td><code>git checkout COMMIT_ID -- src</code></td>
+<td>Tracked paths from that version under <code>src</code></td>
+</tr>
+<tr>
+<td><code>git checkout COMMIT_ID -- .</code></td>
+<td>Tracked paths from that version in the current folder and below</td>
+</tr>
+</tbody>
+</table>
+<p>These commands copy selected old content into <strong>both the working tree and staging area</strong>, while keeping <code>HEAD</code> on the current branch. The explicit <code>--</code> makes the path selection clear.</p>
+<p>They overwrite selected local content. Also, this form normally uses overlay behavior: files absent from the chosen old version are not automatically removed, so it may not reproduce that entire old directory exactly.</p>
+<p>Review and save the restored content:</p>
+<pre class="hljs"><code><div>git status
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Version 1 restored&quot;</span>
+git log <span class="hljs-literal">--all</span> <span class="hljs-literal">--graph</span>
+</div></code></pre>
+<p><strong>Viewing an old commit changes where you are looking. Restoring old file content changes what you will save next.</strong></p>
+<h3 id="9-create-git-shortcuts">9. Create Git shortcuts</h3>
+<pre class="hljs"><code><div>git config <span class="hljs-literal">--global</span> alias.s <span class="hljs-string">&quot;status&quot;</span>
+git config <span class="hljs-literal">--global</span> alias.cm <span class="hljs-string">&quot;commit -m&quot;</span>
+git config <span class="hljs-literal">--global</span> alias.co <span class="hljs-string">&quot;checkout&quot;</span>
+</div></code></pre>
+<p>After configuring them:</p>
+<table>
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git s</code></td>
+<td><code>git status</code></td>
+</tr>
+<tr>
+<td><code>git cm &quot;Add introduction&quot;</code></td>
+<td><code>git commit -m &quot;Add introduction&quot;</code></td>
+</tr>
+<tr>
+<td><code>git co main</code></td>
+<td><code>git checkout main</code></td>
+</tr>
+</tbody>
+</table>
+<p>These are Git aliases. They do not create PowerShell aliases such as <code>cd</code> or <code>pwd</code>.</p>
+<h3 id="10-ignore-selected-files">10. Ignore selected files</h3>
+<p>The lesson creates a <code>.gitignore</code> file containing:</p>
+<pre class="hljs"><code><div>secrets.txt
+</div></code></pre>
+<p>This keeps an untracked <code>secrets.txt</code> out of normal staging and status output. Save the ignore rules themselves:</p>
+<pre class="hljs"><code><div>git add .
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Add gitignore&quot;</span>
+</div></code></pre>
+<p><code>.gitignore</code> does not stop tracking files already tracked, and it does not erase content from older commits.</p>
+<h3 id="11-remove-git-from-a-disposable-copy">11. Remove Git from a disposable copy</h3>
+<p>The video copies the project first, then deletes <code>.git</code> <strong>in the copy</strong>.</p>
+<p>In Bash or Git Bash:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">rm</span> -rf .git
+</div></code></pre>
+<p>In PowerShell:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">Remove-Item</span> <span class="hljs-literal">-LiteralPath</span> .git <span class="hljs-literal">-Recurse</span> <span class="hljs-literal">-Force</span>
+</div></code></pre>
+<p><strong>This deletes that copy's local history, branches, and repository settings.</strong> Working project files remain. It does not delete a repository hosted on GitHub. The Bash <code>-rf</code> syntax does not work with PowerShell's <code>rm</code> alias.</p>
+<p>Afterward, <code>git log</code> should report that you are not in a repository, unless the folder is inside another repository. This is a removal demonstration, not a routine step in the practice workflow.</p>
+<h2 id="extra-commands-i-practiced">Extra commands I practiced</h2>
+<p>These commands came from my separate practice, rather than the supplied video segment. Examples are references; choose only the command that matches your goal.</p>
+<h3 id="setup-help-and-status">Setup, help, and status</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git --version</code></td>
+<td>Check the installed Git version</td>
+</tr>
+<tr>
+<td><code>git init -b main</code></td>
+<td>Initialize a new repository with the initial branch named <code>main</code></td>
+</tr>
+<tr>
+<td><code>git config --global user.name</code></td>
+<td>Read the configured global author name</td>
+</tr>
+<tr>
+<td><code>git config --global user.email</code></td>
+<td>Read the configured global author email</td>
+</tr>
+<tr>
+<td><code>git help -a</code></td>
+<td>List available Git commands</td>
+</tr>
+<tr>
+<td><code>git status -h</code></td>
+<td>Show brief status help</td>
+</tr>
+<tr>
+<td><code>git commit -h</code></td>
+<td>Show brief commit help</td>
+</tr>
+<tr>
+<td><code>git status -s</code></td>
+<td>Show compact status output</td>
+</tr>
+<tr>
+<td><code>git remote -v</code></td>
+<td>List configured remote addresses; a URL does not prove an upload</td>
+</tr>
+</tbody>
+</table>
+<p>For Windows installation or updating, I also practiced these PowerShell commands:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Install if Git is not installed</span>
+winget install <span class="hljs-literal">--id</span> Git.Git <span class="hljs-literal">-e</span> <span class="hljs-literal">--source</span> winget
+
+<span class="hljs-comment"># Update an installation recognized by winget</span>
+winget upgrade <span class="hljs-literal">--id</span> Git.Git <span class="hljs-literal">-e</span> <span class="hljs-literal">--source</span> winget
+</div></code></pre>
+<p>Run the appropriate one, then reopen the terminal and check <code>git --version</code>.</p>
+<h3 id="review-changes-before-saving">Review changes before saving</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Comparison</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git diff</code></td>
+<td>Working tree versus staging area: unstaged changes</td>
+</tr>
+<tr>
+<td><code>git diff --cached</code></td>
+<td>Staging area versus latest commit: staged changes</td>
+</tr>
+</tbody>
+</table>
+<p><code>git diff</code> does not show the contents of untracked files. Stage a new file before reviewing its content with <code>git diff --cached</code>.</p>
+<p>My review routine for an already tracked <code>index.html</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># After editing and saving index.html</span>
+git <span class="hljs-built_in">diff</span>
+git add index.html
+git <span class="hljs-built_in">diff</span> <span class="hljs-literal">--cached</span>
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Add project introduction&quot;</span>
+git status
+</div></code></pre>
+<p>If I edit after <code>git add</code>, I need to stage again to include that newer version. The same file can have both staged and unstaged changes.</p>
+<h3 id="use-clearer-undo-commands">Use clearer undo commands</h3>
+<table>
+<thead>
+<tr>
+<th>Older form from the video</th>
+<th>Modern form I practiced</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git reset index.html</code></td>
+<td><code>git restore --staged index.html</code></td>
+<td>Unstage; keep working edits</td>
+</tr>
+<tr>
+<td><code>git reset .</code></td>
+<td><code>git restore --staged .</code></td>
+<td>Unstage within the current folder</td>
+</tr>
+<tr>
+<td><code>git checkout -- index.html</code></td>
+<td><code>git restore index.html</code></td>
+<td>Discard unstaged edits; restore staged content</td>
+</tr>
+<tr>
+<td><code>git checkout -- .</code></td>
+<td><code>git restore .</code></td>
+<td>Do the same for tracked files within the current folder</td>
+</tr>
+</tbody>
+</table>
+<p>The option is <strong><code>--staged</code></strong>, with a final <code>d</code>. These pairs cover these particular jobs; <code>reset</code> and <code>checkout</code> have other uses too.</p>
+<h3 id="customize-history-output">Customize history output</h3>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git log --oneline</code></td>
+<td>One short commit ID and message per line</td>
+</tr>
+<tr>
+<td><code>git log -3</code></td>
+<td>Latest three commits in the current history</td>
+</tr>
+<tr>
+<td><code>git log --oneline -3</code></td>
+<td>Latest three in compact form</td>
+</tr>
+<tr>
+<td><code>git log --stat</code></td>
+<td>File change statistics for each commit</td>
+</tr>
+<tr>
+<td><code>git log -p</code></td>
+<td>Patches showing changes made by commits</td>
+</tr>
+<tr>
+<td><code>git log --oneline --graph --all</code></td>
+<td>Compact history graph across refs</td>
+</tr>
+<tr>
+<td><code>git log -- README.md</code></td>
+<td>History affecting this path</td>
+</tr>
+<tr>
+<td><code>git log --all --format=&quot;%an&quot;</code></td>
+<td>Author names without emails or dates</td>
+</tr>
+<tr>
+<td><code>git log --all --format=&quot;%h | %an | %s&quot;</code></td>
+<td>Short ID, author name, and message</td>
+</tr>
+</tbody>
+</table>
+<p>In the last command, the pipes belong inside the quoted format string. Use the following copyable form:</p>
+<pre class="hljs"><code><div>git log <span class="hljs-literal">--all</span> <span class="hljs-literal">--format</span>=<span class="hljs-string">&quot;%h | %an | %s&quot;</span>
+</div></code></pre>
+<h3 id="manage-ignored-files-and-deletions">Manage ignored files and deletions</h3>
+<pre class="hljs"><code><div><span class="hljs-comment"># Append rules without replacing existing .gitignore content</span>
+<span class="hljs-string">&quot;.env&quot;</span> | <span class="hljs-built_in">Add-Content</span> .gitignore
+<span class="hljs-string">&quot;node_modules/&quot;</span> | <span class="hljs-built_in">Add-Content</span> .gitignore
+<span class="hljs-string">&quot;*.log&quot;</span> | <span class="hljs-built_in">Add-Content</span> .gitignore
+
+<span class="hljs-comment"># Check ignored files and the rules responsible</span>
+git status <span class="hljs-literal">--ignored</span>
+git check<span class="hljs-literal">-ignore</span> <span class="hljs-literal">-v</span> .env debug.log
+</div></code></pre>
+<p><code>*.log</code> matches names ending in <code>.log</code>. <code>node_modules/</code> targets directories. Use fake values, such as <code>FAKE_TOKEN=practice-only</code>, for exercises.</p>
+<p>For an already tracked file you want to ignore:</p>
+<pre class="hljs"><code><div><span class="hljs-string">&quot;notes.txt&quot;</span> | <span class="hljs-built_in">Add-Content</span> .gitignore
+git <span class="hljs-built_in">rm</span> <span class="hljs-literal">--cached</span> <span class="hljs-literal">--</span> notes.txt
+git add .gitignore
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Stop tracking local notes&quot;</span>
+</div></code></pre>
+<p><code>git rm --cached</code> removes the file from Git's index but keeps your working copy. Older commits still contain it.</p>
+<p>For a tracked file you actually want to delete:</p>
+<pre class="hljs"><code><div>git <span class="hljs-built_in">rm</span> index.html
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Remove index.html&quot;</span>
+</div></code></pre>
+<p>That deletes the working file and stages its deletion. Use it only when deletion is intended.</p>
+<h3 id="powershell-commands-that-helped-me">PowerShell commands that helped me</h3>
+<p>These manage files and folders; they are not Git commands.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>New-Item -ItemType Directory -Path &quot;practice&quot;</code></td>
+<td>Create a folder</td>
+</tr>
+<tr>
+<td><code>New-Item -ItemType File -Path &quot;notes.txt&quot;</code></td>
+<td>Create an empty file</td>
+</tr>
+<tr>
+<td><code>Set-Location &quot;practice&quot;</code> or <code>cd &quot;practice&quot;</code></td>
+<td>Enter a folder</td>
+</tr>
+<tr>
+<td><code>cd ..</code></td>
+<td>Go up one folder</td>
+</tr>
+<tr>
+<td><code>cd ../..</code></td>
+<td>Go up two folders</td>
+</tr>
+<tr>
+<td><code>Get-Location</code> or <code>pwd</code></td>
+<td>Show the current location</td>
+</tr>
+<tr>
+<td><code>Rename-Item -Path &quot;practice&quot; -NewName &quot;git-practice&quot;</code></td>
+<td>Rename a folder from its parent</td>
+</tr>
+<tr>
+<td><code>Get-Content index.html</code></td>
+<td>Display a file's content</td>
+</tr>
+<tr>
+<td><code>&quot;New content&quot; | Set-Content index.html</code></td>
+<td>Replace a file's content, or create it</td>
+</tr>
+<tr>
+<td><code>&quot;Extra content&quot; | Add-Content index.html</code></td>
+<td>Append content, or create the file</td>
+</tr>
+<tr>
+<td><code>code index.html</code></td>
+<td>Open the file in VS Code if the <code>code</code> command is available</td>
+</tr>
+<tr>
+<td><code>Remove-Item notes.txt</code></td>
+<td>Delete a file directly, without the Recycle Bin</td>
+</tr>
+<tr>
+<td><code>Test-Path .git</code></td>
+<td>Check whether <code>.git</code> exists at the current location</td>
+</tr>
+</tbody>
+</table>
+<p><code>$HOME</code> means your user home folder. Quote paths containing spaces. <code>@(...)</code> creates a PowerShell array, and the pipe <code>|</code> passes output to the next command.</p>
+<p><strong>My useful correction:</strong> <code>Set-Content</code> replaces text; <code>Add-Content</code> adds text. When I want a specific edit inside an HTML document, VS Code makes it easier to place it correctly.</p>
+<h3 id="a-first-look-at-feature-branches">A first look at feature branches</h3>
+<p>We also discussed this simple workflow separately. It goes beyond the video segment's brief introduction to branching. Start from a committed project on <code>main</code> with a clean working tree.</p>
+<pre class="hljs"><code><div>git <span class="hljs-keyword">switch</span> <span class="hljs-literal">-c</span> <span class="hljs-built_in">new-navbar</span>
+<span class="hljs-comment"># Edit and save the navbar</span>
+git add .
+git commit <span class="hljs-literal">-m</span> <span class="hljs-string">&quot;Improve navbar&quot;</span>
+git <span class="hljs-keyword">switch</span> main
+git merge <span class="hljs-built_in">new-navbar</span>
+</div></code></pre>
+<p><code>switch -c</code> creates and enters a branch; <code>switch main</code> returns to the starting branch; <code>merge</code> brings the feature's history into it. If both branches change overlapping content, resolving a merge conflict may be necessary. That is a future learning topic.</p>
+<h2 id="what-i-learned">What I learned</h2>
+<ul>
+<li><strong>Saving a file is not committing it.</strong> The editor saves working content; Git records a version only when I commit.</li>
+<li><strong>Staging is a choice.</strong> I select the content I want in the next commit.</li>
+<li><strong>Unstaging keeps my edits.</strong> Discarding unstaged edits removes them.</li>
+<li><strong>History has structure.</strong> A commit ID identifies a snapshot, a branch points to a line of development, and <code>HEAD</code> tells Git where I am.</li>
+<li><strong>Viewing and restoring differ.</strong> I can inspect an old commit or copy its content into my current branch.</li>
+<li><strong>A repository contains branches.</strong> Creating a branch does not create another project folder.</li>
+<li><strong>Ignore rules are not history erasers.</strong> They normally affect untracked files.</li>
+<li><strong>Local commits are local.</strong> Git does not automatically send them to GitHub.</li>
+</ul>
+<h3 id="how-the-practice-project-changed">How the practice project changed</h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Change made</th>
+<th>What happened in Git</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Version 1</td>
+<td>Added the initial JavaScript snippets</td>
+<td>Created the first saved snapshot</td>
+</tr>
+<tr>
+<td>Amend demonstration</td>
+<td>Added a forgotten file or corrected the message</td>
+<td>Replaced the latest commit with a corrected one</td>
+</tr>
+<tr>
+<td>Version 2</td>
+<td>Updated the version text in the example files</td>
+<td>Recorded a new snapshot</td>
+</tr>
+<tr>
+<td>Version 3</td>
+<td>Updated the version text again</td>
+<td>Extended the current history</td>
+</tr>
+<tr>
+<td>Viewing earlier versions</td>
+<td>Checked out an earlier commit</td>
+<td>Changed the viewed snapshot without rewriting the original branch</td>
+</tr>
+<tr>
+<td>Restoration</td>
+<td>Copied Version 1 content into the current branch</td>
+<td>Prepared old content as a new change, then committed it</td>
+</tr>
+<tr>
+<td>Ignore rules</td>
+<td>Added a practice secret filename to <code>.gitignore</code></td>
+<td>Excluded matching untracked files from normal staging</td>
+</tr>
+<tr>
+<td>Removal demonstration</td>
+<td>Deleted <code>.git</code> in a disposable copy</td>
+<td>Removed that copy's repository metadata and local history</td>
+</tr>
+</tbody>
+</table>
+<p>This table describes the lesson's exercise. The repository's actual <code>git log</code> is the record of which steps were committed here.</p>
+<h2 id="next-improvements">Next improvements</h2>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">Learn how to connect a local repository to GitHub and publish commits.</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">Practice fetching and pulling remote changes.</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Explore feature branches more deeply and resolve merge conflicts.</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Learn pull requests and collaboration workflows.</label></li>
+</ul>
+<p>These are future goals, not skills demonstrated by the supplied video segment.</p>
+<h2 id="feedback-and-contributions">Feedback and contributions</h2>
+<p>If an explanation is confusing or you notice an incorrect command, feedback is welcome. Include the command, your terminal type, and what happened so the explanation can be improved.</p>
+<h2 id="credits-and-license">Credits and license</h2>
+<p>Learning notes compiled by <strong><a href="https://github.com/Elmahdi25">Elmahdi Benabbou</a></strong>.</p>
+<p>The local Git exercise is based on the supplied transcript of a tutorial by <strong>Simon from <a href="https://supersimple.dev">SuperSimple.dev</a></strong>. Explanations here are rewritten as personal study notes. Additional commands come from my separate practice.</p>
+<h2 id="support-the-project">Support the project</h2>
+<p>If these notes help you understand Git, a star or a useful correction is appreciated. You can find my other learning projects on <strong><a href="https://github.com/Elmahdi25">my GitHub profile</a></strong>.</p>
+<hr>
+<div align="center">
+  <strong>One change, one commit, one step forward. 🚀</strong>
+</div>
+
+</body>
+</html>
